@@ -1,0 +1,100 @@
+Section 4:
+Task two: assignment on methods Deadline 25th November, 2022
+Question  1
+package array;
+    import java.util.Arrays;
+    import java.util.Scanner;
+
+public class array {
+    public static void main(String[] args) {
+        System.out.println("Enter only 15 values of integer type");
+        Scanner sc = new Scanner(System.in);
+
+        int sizeOfArr[] = new int[15];
+        for (int i = 0; i < 15; i++) {
+            sizeOfArr[i] = sc.nextInt();
+        }
+
+        // PART A
+        System.out.println("values stored in the array are:" + Arrays.toString(sizeOfArr));
+        System.out.println(" ");
+
+        // PART B
+        System.out.println("enter a number to check if it is present in the array");
+        int find = sc.nextInt();
+        int index = -1;
+        boolean check = false;
+
+        int i = 0;
+        while(i < sizeOfArr.length) {
+            if(sizeOfArr[i] == find) {
+                index = i;
+                check = true;
+                break;
+            }
+            i++;
+        }
+        if(check) {
+            System.out.println(find + " is found at index " + index + " index");
+            System.out.println(" ");
+        }
+        else {
+            System.out.println(find + " is not found in this array.");
+            System.out.println(" ");
+        }
+
+        // PART C
+        StringBuilder reversed = new StringBuilder();
+        for (int j = sizeOfArr.length; j > 0; j--) {
+            reversed.append(sizeOfArr[j - 1]).append(" ");
+        };
+
+        System.out.println("copy all the elements from the existing array to the new one but in reverse order");
+        String[] reversedArray = reversed.toString().split(" ");
+        System.out.println(Arrays.toString(reversedArray));
+        System.out.println(" ");
+
+        //PART D
+        int sum = 0;
+        //Loop through the array to calculate sum of elements
+        for (int k = 0; k < sizeOfArr.length; k++) {
+            sum = sum + sizeOfArr[k];
+        }
+        System.out.println("Sum of all the elements of the array is: " + sum);
+        System.out.println(" ");
+
+        int arrayProduct = 1;
+        //Loop through the array to calculate sum of elements
+        for (int k = 0; k < sizeOfArr.length; k++) {
+            arrayProduct = arrayProduct * sizeOfArr[k];
+        }
+        System.out.println("Product of all the elements of the array is: " + arrayProduct);
+
+    }
+}
+
+
+Question  2
+package checkforprime;
+
+public class CheckForPrime {
+    public static boolean isPrime(int number) {
+        for (int i = 2; i < number; i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(isPrime(20));
+
+        for (int i = 1; i <= 500; i++) {
+            if (isPrime(i)) {
+                System.out.println(i);
+            }
+        }
+    }
+}
